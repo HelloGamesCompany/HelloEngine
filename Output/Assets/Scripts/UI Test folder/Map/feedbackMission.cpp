@@ -29,7 +29,7 @@ void feedbackMission::Start()
 	playerStorage = (PlayerStorage*)player.GetScript("PlayerStorage");
 	mision_LikeThe = (Mision_LikeThe80s*)missionsGO.GetScript("Mision_LikeThe80s");
 	mision_Masacre = (Mision_Masacre*)missionsGO.GetScript("Mision_Masacre");
-	//mision_Personal = (Mision_SomethingPersonal*)missionsGO.GetScript("Mision_SomethingPersonal");
+	mision_Personal = (Mision_SomethingPersonal*)missionsGO.GetScript("Mision_SomethingPersonal");
 
 	viusalFeedbackScript = (AnimationMove*)visualFeedback.GetScript("AnimationMove");
 }
@@ -61,10 +61,14 @@ void feedbackMission::Update()
 			missionPostit1.GetMaterialCompoennt().ChangeAlbedoTexture(mission1Finish);
 			misionCompleted_1_2 = false;
 		}
-		/*if (mision_Personal->misionCompleted)
+		if (mision_Personal->misionCompleted && misionCompleted_2_2)
 		{
+			visualFeedback.GetMaterialCompoennt().ChangeAlbedoTexture(mission1Finish);
+			viusalFeedbackScript->ResetAnimationMoveX();
+			viusalFeedbackScript->PlayAnimationMoveX();
 			missionPostit2.GetMaterialCompoennt().ChangeAlbedoTexture(mission2Finish);
-		}*/
+			misionCompleted_2_2 = false;
+		}
         break;
     case 3: // level 3
         break;
