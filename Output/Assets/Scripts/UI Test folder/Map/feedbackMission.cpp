@@ -42,22 +42,24 @@ void feedbackMission::Update()
        // no casettes in hub
         break;
     case 1: // level 1
-		if (mision_LikeThe->misionCompleted)
+		if (mision_LikeThe->misionCompleted && misionCompleted_1_1)
 		{
 			visualFeedback.GetMaterialCompoennt().ChangeAlbedoTexture(mission1Finish);
 			viusalFeedbackScript->ResetAnimationMoveX();
 			viusalFeedbackScript->PlayAnimationMoveX();
 			missionPostit1.GetMaterialCompoennt().ChangeAlbedoTexture(mission1Finish);
+			misionCompleted_1_1 = false;
 		}
 		//Second mission in revision
         break;
     case 2: // level 2
-		if (mision_Masacre->misionCompleted)
+		if (mision_Masacre->misionCompleted && misionCompleted_1_2)
 		{
 			visualFeedback.GetMaterialCompoennt().ChangeAlbedoTexture(mission1Finish);
 			viusalFeedbackScript->ResetAnimationMoveX();
 			viusalFeedbackScript->PlayAnimationMoveX();
 			missionPostit1.GetMaterialCompoennt().ChangeAlbedoTexture(mission1Finish);
+			misionCompleted_1_2 = false;
 		}
 		/*if (mision_Personal->misionCompleted)
 		{
