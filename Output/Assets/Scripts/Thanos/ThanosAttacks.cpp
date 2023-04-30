@@ -34,6 +34,8 @@ HELLO_ENGINE_API_C ThanosAttacks* CreateThanosAttacks(ScriptToInspectorInterface
 	script->AddDragBoxGameObject("BeamTarget3", &classInstance->beamTarget3);
 	script->AddDragBoxGameObject("BeamTarget4", &classInstance->beamTarget4);
 
+	script->AddDragBoxGameObject("Meteor Rain", &classInstance->meteorRain);
+
 
 	//Show variables inside the inspector using script->AddDragInt("variableName", &classInstance->variable);
 	return classInstance;
@@ -132,8 +134,13 @@ void ThanosAttacks::Update()
 
 			if (charge > 2.0f) {
 				charge = 0.0f;
-				if (attackType > 50) thanosState = THANOS_STATE::BURST;
-				if (attackType <= 50) thanosState = THANOS_STATE::BEAM;
+				attackType = 2.0f;
+				if (attackType > 66) thanosState = THANOS_STATE::BURST;
+				if (attackType <= 66 && attackType > 33) thanosState = THANOS_STATE::BEAM;
+				if (attackType < 33) {
+					thanosState = THANOS_STATE::METEORRAIN;
+					meteorRainPosition = meteorRain.GetTransform().GetGlobalRotation();
+				}
 				 
 			}
 
@@ -197,6 +204,20 @@ void ThanosAttacks::Update()
 
 			}
 			
+			break;
+
+		case THANOS_STATE::METEORRAIN:
+
+			meteorRainTime += Time::GetDeltaTime();
+
+			if (meteorRainTime < 30.0f) meteorRain.GetTransform().Translate(0, -meteorRainSpeed * Time::GetDeltaTime(), 0);
+			else {
+				meteorRainTime = 0.0f;
+				meteorRain.GetTransform().SetPosition(meteorRainPosition);
+				thanosState = THANOS_STATE::IDLE;
+			}
+
+
 			break;
 
 		default:

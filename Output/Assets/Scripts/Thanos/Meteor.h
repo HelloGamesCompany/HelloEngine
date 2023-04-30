@@ -5,11 +5,13 @@
 
 #include "API/API.h"
 
-class ThanosDefense : HelloBehavior
+class Meteor : HelloBehavior
 {
 public:
 	void Start() override; 
 	void Update() override;
 	void OnCollisionEnter(API::API_RigidBody other);
+
+	float meteorDmg = 15.0f;
 };
 
