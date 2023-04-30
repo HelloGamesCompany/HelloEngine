@@ -49,7 +49,7 @@ void ThanosAttacks::Start()
 	thanosState = THANOS_STATE::SEEKING;
 	sword.SetActive(false);
 	melee1.SetActive(false);
-	defenseSword.SetActive(true);
+	defenseSword.SetActive(false);
 	explosionWave.SetActive(false);
 	bullet1.SetActive(false);
 	bullet2.SetActive(false);
@@ -72,7 +72,7 @@ void ThanosAttacks::Start()
 }
 void ThanosAttacks::Update()
 {
-	
+	//defenseSword.GetTransform().SetPosition(boss.GetTransform().GetGlobalPosition());
 	if (tLoop->phase == 2 && thanosState != THANOS_STATE::THROWINGATTACK && finalSword == true) {
 		//2ND phase!!!
 
@@ -133,7 +133,6 @@ void ThanosAttacks::Update()
 				if (attackType <= 50) thanosState = THANOS_STATE::BEAM;
 				 
 			}
-			
 
 			break;
 
@@ -204,7 +203,7 @@ void ThanosAttacks::Update()
 	}
 	else {
 		if (isAttacking) {
-			defenseSword.GetTransform().SetPosition(0, 100000000, 0);
+			//defenseSword.GetTransform().SetPosition(0, 100000000, 0);
 			switch (thanosState)
 			{
 			case THANOS_STATE::IDLE:
@@ -273,8 +272,8 @@ void ThanosAttacks::Update()
 		}
 		else {
 			sword.GetTransform().SetPosition(boss.GetTransform().GetGlobalPosition());
-			defenseSword.GetTransform().SetPosition({ 0,1,1 });
-			defenseSword.SetActive(true);
+			//defenseSword.GetTransform().SetPosition({ 0,1,1 });
+			//defenseSword.SetActive(true);
 		}
 	}
 	
@@ -312,7 +311,7 @@ void ThanosAttacks::Seek(API_GameObject* seeker, API_Vector3 target, float speed
 			thanosState = THANOS_STATE::PULSE;
 			isAttacking = false;
 			finalSword = true;
-			defenseSword.SetActive(false);
+			//defenseSword.SetActive(false);
 		}
 		if (thanosState == THANOS_STATE::THROWINGATTACK) {
 			if (aimPosition == boss.GetTransform().GetGlobalPosition()) {
