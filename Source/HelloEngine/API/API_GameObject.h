@@ -23,6 +23,8 @@ namespace API
 	class API_UIText;
     class API_SkinnedMeshRenderer;
     class API_ShaderComponent;
+    class API_Agent;
+
     class TO_API API_GameObject
     {
     public:
@@ -61,6 +63,8 @@ namespace API
         API_AnimationPlayer GetAnimationPlayer();
 
         API_SkinnedMeshRenderer GetSkinnedMeshRender();
+
+        API_Agent GetAgent();
 
         uint GetUID();
 

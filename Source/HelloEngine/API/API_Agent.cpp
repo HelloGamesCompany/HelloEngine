@@ -26,12 +26,13 @@ API::API_GameObject API::API_Agent::GetGameObject()
 	return returnGO;
 }
 
-void API::API_Agent::SetDestination(float3 des)
+void API::API_Agent::SetDestination(API_Vector3 des)
 {
 	if (!_componentAgent)
 		return;
 
 	_componentAgent->SetTarget(des);
+	_componentAgent->MoveToTarget();
 }
 
 void API::API_Agent::Move()

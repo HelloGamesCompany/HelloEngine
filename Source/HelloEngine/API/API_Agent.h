@@ -14,11 +14,13 @@ namespace API
 
 		API_GameObject GetGameObject();
 
-		// Utils
-		void SetDestination(float3 des);
+		// Move to the position that recived	
+		void SetDestination(API_Vector3 des);
 
+		// Move to the last position which recived
 		void Move();
 
+		// Stop moving
 		void Stop();
 
 		// Change properties
@@ -27,7 +29,6 @@ namespace API
 
 		float GetSpeed();
 		
-
 	private:
 		ComponentAgent* GetComponent();
 		void SetComponent(ComponentAgent* component);
