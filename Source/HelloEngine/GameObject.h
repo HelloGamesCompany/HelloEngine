@@ -2,7 +2,7 @@
 #include "Component.h"
 #include "TransformComponent.h"
 
-#define COMPONENT_NUM 10
+#define COMPONENT_NUM 13
 
 struct PhysBody3D;
 
@@ -143,13 +143,17 @@ private:
 	bool _updatePrefab;
 
 	// On Editor variables
-	std::string _comboValues[COMPONENT_NUM] = { "Mesh Renderer", "Texture", "Camera", "Script", "Physics","Particle System","Skinned Mesh Renderer", "Animation Player", "Material", "Navmesh Agent" };
-	bool _isPendingToDelete = false;
-	std::vector<int> _childrenDeletedIndex;
-	friend class TransformComponent;
-	friend class ModuleRenderer3D;
-	friend class ModuleResourceManager;
-	friend class CommandSetParentGameObject;
-	friend class ImWindowHierarchy;
-	friend class ImWindowInspector;
+	std::string _comboValues[COMPONENT_NUM] = { "Mesh Renderer", "Texture", "Camera", 
+        "Script", "Physics", "Particle System", "Skinned Mesh Renderer", "Animation Player", 
+        "Material", "Directional Light", "Point Light", "Spot Light", "Navmesh Agent" };
+	
+    bool _isPendingToDelete = false;
+    std::vector<int> _childrenDeletedIndex;
+    friend class TransformComponent;
+    friend class ModuleRenderer3D;
+    friend class ModuleResourceManager;
+    friend class CommandSetParentGameObject;
+    friend class ImWindowHierarchy;
+    friend class ImWindowInspector;
+
 };

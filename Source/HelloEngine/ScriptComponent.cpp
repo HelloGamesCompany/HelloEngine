@@ -196,7 +196,7 @@ void ScriptComponent::AddCheckBox(const char* name, bool* value)
 	inspectorFields.push_back(checkBoxField);
 }
 
-void ScriptComponent::AddInputBox(const char* name, std::string* value)
+void ScriptComponent::AddInputBox(const char* name, API::API_String* value)
 {
 	InputBoxField* inputBoxField = new InputBoxField();
 	inputBoxField->valueName = name;
@@ -359,6 +359,16 @@ void ScriptComponent::AddDragBoxUIText(const char* name, API::API_UIText* value)
 void ScriptComponent::AddDragBoxPrefabResource(const char* name, uint* value)
 {
 	DragBoxPrefabResource* dragBoxField = new DragBoxPrefabResource();
+	dragBoxField->valueName = name;
+	dragBoxField->value = value;
+	dragBoxField->className = scriptResource == nullptr ? addedScript : scriptResource->className;
+
+	inspectorFields.push_back(dragBoxField);
+}
+
+void ScriptComponent::AddDragBoxShaderComponent(const char* name, API::API_ShaderComponent* value)
+{
+	DragBoxShaderComponent* dragBoxField = new DragBoxShaderComponent();
 	dragBoxField->valueName = name;
 	dragBoxField->value = value;
 	dragBoxField->className = scriptResource == nullptr ? addedScript : scriptResource->className;

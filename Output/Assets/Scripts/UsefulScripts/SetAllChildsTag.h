@@ -11,7 +11,7 @@ public:
 	void Start() override; 
 	void Update() override;
 
-	std::string tag;
+	API_String tag;
 	bool onlyDirectChilds;
 };
 

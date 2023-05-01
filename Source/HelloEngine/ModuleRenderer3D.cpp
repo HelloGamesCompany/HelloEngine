@@ -82,6 +82,17 @@ bool ModuleRenderer3D::Init()
 
 	OnResize(ModuleWindow::width, ModuleWindow::height);
 
+	isRenderingColliders = true;
+
+	return ret;
+}
+
+bool ModuleRenderer3D::Start()
+{
+	bool ret = true;
+
+	particleManager.Start();
+
 	return ret;
 }
 

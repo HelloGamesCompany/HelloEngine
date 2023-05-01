@@ -35,10 +35,11 @@ ModuleFiles::ModuleFiles() :Module()
     S_AddPathToFileSystem(".");
 
     //S_AddPathToFileSystem("Resources");
-
+#ifdef STANDALONE
     int res = system("msbuild -version");
     _automaticCompilation = res == 0;
     _enabledAutomaticCompilation = _automaticCompilation;
+#endif // STANDALONE
 }
 
 ModuleFiles::~ModuleFiles()

@@ -14,6 +14,7 @@ public:
 	~ModuleRenderer3D();
 
 	bool Init();
+	bool Start();
 	UpdateStatus PreUpdate();
 	UpdateStatus PostUpdate();
 	bool CleanUp();
@@ -34,6 +35,7 @@ public:
 	SDL_GLContext context;
 	static bool isVSync;
 	static bool drawNavMesh;
+	bool isRenderingColliders;
 
 private:
 	ModuleCamera3D* _cameras = nullptr;

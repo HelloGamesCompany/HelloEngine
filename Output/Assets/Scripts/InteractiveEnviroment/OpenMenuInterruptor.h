@@ -14,6 +14,8 @@ public:
     void Update() override;
 
     void OnCollisionEnter(API::API_RigidBody other) override;
+    void OnCollisionStay(API::API_RigidBody other) override;
+    void OnCollisionExit(API::API_RigidBody other) override;
 
     void OpenMenus();
 

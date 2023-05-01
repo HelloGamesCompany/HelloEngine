@@ -22,6 +22,9 @@
 #include "PhysicsComponent.h"
 #include "ComponentUIInput.h"
 #include "TextRendererComponent.h"
+#include "DirectionalLightComponent.h"
+#include "PointLightComponent.h"
+#include "SpotLightComponent.h"
 #include "NavAgentComponent.h"
 
 GameObject::GameObject(GameObject* parent, std::string name, std::string tag, uint ID) : name(name), tag(tag)
@@ -209,103 +212,119 @@ void GameObject::OnCollisionExit(PhysBody3D* other)
 
 void GameObject::OnEditor()
 {
-	if (_isPendingToDelete)
-		return;
+    if (_isPendingToDelete) return;
 
-	for (auto* component : _components)
-	{
-		component->OnEditor();
-	}
+    for (auto* component : _components)
+    {
+        component->OnEditor();
+    }
 
-	ImGui::Separator();
+    ImGui::Separator();
 
-	ImGui::Spacing();
-	if (ImGui::BeginCombo("Add Component", "Select"))
-	{
-		for (int i = 0; i < COMPONENT_NUM; ++i)
-		{
-			if (ImGui::Selectable(_comboValues[i].c_str(), false))
-			{
-				switch (i)
-				{
-				case 0:
-					if (!HasComponent<MeshRenderComponent>())
-						AddComponent<MeshRenderComponent>();
+    ImGui::Spacing();
+    if (ImGui::BeginCombo("Add Component", "Select"))
+    {
+        for (int n = 0; n < COMPONENT_NUM; n++)
+        {
+            int selectedItem = n;
+            if (ImGui::Selectable(_comboValues[n].c_str(), false))
+            {
+                switch (n)
+                {
+                case 0:
+                    if (!HasComponent<MeshRenderComponent>())
+                        AddComponent<MeshRenderComponent>();
+                    break;
+                case 1:
+                    if (!HasComponent<TextureComponent>())
+                        AddComponent<TextureComponent>();
+                    break;
+                case 2:
+                    if (!HasComponent<CameraComponent>())
+                        AddComponent<CameraComponent>();
+                    break;
+                case 3:
+                    AddComponent<ScriptComponent>();
+                    break;
+                case 4:
+                    if (!HasComponent<PhysicsComponent>())
+                        AddComponent<PhysicsComponent>();
+                    break;
+                case 5:
+                    if (!HasComponent<ParticleSystemComponent>())
+                        AddComponent<ParticleSystemComponent>();
+                    break;
+                case 6:
+                    if (!HasComponent<SkinnedMeshRenderComponent>())
+                        AddComponent<SkinnedMeshRenderComponent>();
+                    break;
+                case 7:
+                    if (!HasComponent<AnimationComponent>())
+                        AddComponent<AnimationComponent>();
+                    break;
+                case 8:
+                    if (!HasComponent<MaterialComponent>())
+                        AddComponent<MaterialComponent>();
+                    break;
+                case 9:
+                    if (!HasComponent<DirectionalLightComponent>())
+                        AddComponent<DirectionalLightComponent>();
+                    break;
+                case 10:
+                    if (!HasComponent<PointLightComponent>())
+                        AddComponent<PointLightComponent>();
+                    break;
+                case 11:
+                    if (!HasComponent<SpotLightComponent>())
+                        AddComponent<SpotLightComponent>();
 					break;
-				case 1:
-					if (!HasComponent<TextureComponent>())
-						AddComponent<TextureComponent>();
-					break;
-				case 2:
-					if (!HasComponent<CameraComponent>())
-						AddComponent<CameraComponent>();
-					break;
-				case 3:
-					AddComponent<ScriptComponent>();
-					break;
-				case 4:
-					if (!HasComponent<PhysicsComponent>())
-						AddComponent<PhysicsComponent>();
-					break;
-				case 5:
-					if (!HasComponent<ParticleSystemComponent>())
-						AddComponent<ParticleSystemComponent>();
-					break;
-				case 6:
-					if (!HasComponent<SkinnedMeshRenderComponent>())
-						AddComponent<SkinnedMeshRenderComponent>();
-					break;
-				case 7:
-					if (!HasComponent<AnimationComponent>())
-						AddComponent<AnimationComponent>();
-					break;
-				case 8:
-					if (!HasComponent<MaterialComponent>())
-						AddComponent<MaterialComponent>();
-				case 9:
+				case 12:
 					if (!HasComponent<ComponentAgent>())
 						AddComponent<ComponentAgent>();
-				}
-			}
-		}
-		ImGui::EndCombo();
-	}
-	if (_prefabUID != 0)
-	{
-		ImGui::TextColored(ImVec4(1, 1, 1, 0.5f), "Prefab UID: "); ImGui::SameLine();
-		ImGui::TextColored(ImVec4(1, 1, 1, 0.5f), std::to_string(_prefabUID).c_str());
+					break;
+                }
+            }
+        }
+        ImGui::EndCombo();
+        }
+    if (_prefabUID != 0)
+    {
+        ImGui::TextColored(ImVec4(1, 1, 1, 0.5f), "Prefab UID: "); ImGui::SameLine();
+        ImGui::TextColored(ImVec4(1, 1, 1, 0.5f), std::to_string(_prefabUID).c_str());
 
-		if (_parent->_prefabUID != 0)
-			return;
+        if (_parent->_prefabUID != 0) return;
+        if (ImGui::Button("Override prefab"))
+        {
+            // Find prefab(asset) with _prefabUID and override it
+            ResourcePrefab* aux = nullptr;
+            if (ModuleResourceManager::resources.count(_prefabUID) != 0)
+                aux = (ResourcePrefab*)ModuleResourceManager::resources[_prefabUID];
 
-		if (ImGui::Button("Override prefab"))
-		{
-			// Find prefab(asset) with _prefabUID and override it
-			ResourcePrefab* aux = nullptr;
-			if (ModuleResourceManager::resources.count(_prefabUID) != 0)
-				aux = (ResourcePrefab*)ModuleResourceManager::resources[_prefabUID];
+            if (aux != nullptr)
+            {
+                ModuleResourceManager::S_OverridePrefab(this, aux->path, _prefabUID);
+            }
+        }
+        if (ImGui::Button("Revert prefab"))
+        {
+            // Find prefab(asset) with _prefabUID and override this one with it
+            ResourcePrefab* aux = nullptr;
+            if (ModuleResourceManager::resources.count(_prefabUID) != 0)
+                aux = (ResourcePrefab*)ModuleResourceManager::resources[_prefabUID];
 
-			if (aux)
-				ModuleResourceManager::S_OverridePrefab(this, aux->path, _prefabUID);
-		}
-		if (ImGui::Button("Revert prefab"))
-		{
-			// Find prefab(asset) with _prefabUID and override this one with it
-			ResourcePrefab* aux = nullptr;
-			if (ModuleResourceManager::resources.count(_prefabUID) != 0)
-				aux = (ResourcePrefab*)ModuleResourceManager::resources[_prefabUID];
-
-			if (aux != nullptr)
-			{
-				GameObject* newGameObject = ModuleResourceManager::S_DeserializeFromPrefab(aux->path, this->_parent);
-				TransformComponent* t = this->GetComponent<TransformComponent>();
-				newGameObject->GetComponent<TransformComponent>()->SetTransform(t->GetGlobalPosition(), t->GetGlobalScale(), t->GetLocalRotation());
-				Destroy();
-			}
-		}
-		if (ImGui::Button("Unpack from prefab"))
-			_prefabUID = 0;
-	}
+            if (aux != nullptr)
+            {
+                GameObject* newGameObject = ModuleResourceManager::S_DeserializeFromPrefab(aux->path, this->_parent);
+                TransformComponent* t = this->GetComponent<TransformComponent>();
+                newGameObject->GetComponent<TransformComponent>()->SetTransform(t->GetGlobalPosition(), t->GetGlobalScale(), t->GetLocalRotation());
+                Destroy();
+            }
+        }
+        if (ImGui::Button("Unpack from prefab"))
+        {
+            _prefabUID = 0;
+        }
+    }
 }
 
 bool GameObject::MarkAsDead()
@@ -361,7 +380,7 @@ bool GameObject::MarkAsAlive()
 	return false;
 }
 
-#endif  
+#endif
 void GameObject::SetAllChildsPrefabUID(uint prefabUID)
 {
 	for (auto& go : _children)
@@ -400,7 +419,7 @@ void GameObject::Destroy()
 	// A bit of hardcoding. This is necessary so the reimport system form models (changing resources, saving and loading) works properly.
 	// Basically, we need to nlink the meshRender resource from the component before destroying it, because when the components is deleted, the new scene has already been loaded,
 	// and that produces the old component to unlink from the new resource, except from the old one.
-	// TODO: Could fix this by searching for references at the moment of reimport. 
+	// TODO: Could fix this by searching for references at the moment of reimport.
 	MeshRenderComponent* meshRender = GetComponent<MeshRenderComponent>();
 
 	if (meshRender != nullptr)
@@ -497,22 +516,35 @@ Component* GameObject::AddComponentOfType(Component::Type type)
 	case Component::Type::ANIMATION_PLAYER:
 		newComponent = new AnimationComponent(this);
 		_components.push_back(newComponent);
-		break;
-	case Component::Type::MATERIAL:
-		newComponent = new MaterialComponent(this);
-		_components.push_back(newComponent);
-		break;
-	case Component::Type::UI_INPUT:
-		newComponent = new ComponentUIInput(this);
-		_components.push_back(newComponent);
-		break;
-	case Component::Type::UI_TEXT:
-		newComponent = new TextRendererComponent(this);
-		_components.push_back(newComponent);
-		break;
+        break;
+    case Component::Type::MATERIAL:
+        newComponent = new MaterialComponent(this);
+        _components.push_back(newComponent);
+        break;
+    case Component::Type::UI_INPUT:
+        newComponent = new ComponentUIInput(this);
+        _components.push_back(newComponent);
+        break;
+    case Component::Type::UI_TEXT:
+        newComponent = new TextRendererComponent(this);
+        _components.push_back(newComponent);
+        break;
+    case Component::Type::DIRECTIONAL_LIGHT:
+        newComponent = new DirectionalLightComponent(this);
+        _components.push_back(newComponent);
+        break;
+    case Component::Type::POINT_LIGHT:
+        newComponent = new PointLightComponent(this);
+        _components.push_back(newComponent);
+        break;
+    case Component::Type::SPOT_LIGHT:
+        newComponent = new SpotLightComponent(this);
+        _components.push_back(newComponent);
+        break;
 	case Component::Type::AGENT:
 		newComponent = new ComponentAgent(this);
 		_components.push_back(newComponent);
+		break;
 	}
 
 	return newComponent;
@@ -557,10 +589,21 @@ Component* GameObject::AddComponentOfType(Component::Type type, const Component&
 		newComponent = new PhysicsComponent(this);
 		_components.push_back(newComponent);
 		break;
-	case Component::Type::MATERIAL:
-		newComponent = new MaterialComponent(this);
-		_components.push_back(newComponent);
-		break;
+    case Component::Type::MATERIAL:
+        newComponent = new MaterialComponent(this);
+        _components.push_back(newComponent);
+        break;
+    case Component::Type::DIRECTIONAL_LIGHT:
+        newComponent = new DirectionalLightComponent(this);
+        _components.push_back(newComponent);
+        break;
+    case Component::Type::POINT_LIGHT:
+        newComponent = new PointLightComponent(this);
+        _components.push_back(newComponent);
+        break;
+    case Component::Type::SPOT_LIGHT:
+        newComponent = new SpotLightComponent(this);
+        _components.push_back(newComponent);
 	}
 
 	return newComponent;

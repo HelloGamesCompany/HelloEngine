@@ -29,6 +29,10 @@ public:
 		UI_INPUT,
 		UI_TEXT,
 		MATERIAL,
+		LIGHT,
+		DIRECTIONAL_LIGHT,
+		POINT_LIGHT,
+		SPOT_LIGHT,
 		AGENT,
 		MAX
 	};
@@ -43,7 +47,7 @@ public:
 
 	//template<class T>
 	//bool TryGetComponent(T* result, uint index = 0);
-	
+
 	Type GetType() { return _type; }
 	bool IsEnabled(){ return _isEnabled; }
 

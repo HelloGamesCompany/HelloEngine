@@ -4,6 +4,7 @@
 #include "PhysBody3D.h"
 #include "ModulePhysics.h"
 #include "API/API_GameObject.h"
+#include <vector>
 
 class PhysicsComponent : public Component
 {
@@ -78,4 +79,10 @@ public:
 
 	float temporalMass = 1;
 	int cylinderVerSlices = 0;
+
+	std::vector<uint> sphereIndicesComp;
+	std::vector<float3> spherePointsComp;
+
+	std::vector<uint> cylinderIndicesComp;
+	std::vector<float3> cylinderPointsComp;
 };

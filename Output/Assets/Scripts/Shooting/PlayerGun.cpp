@@ -82,7 +82,7 @@ void PlayerGun::LauchProjectile(API_Transform projectileSpawn, PROJECTILE_TYPE t
     }
 }
 
-void PlayerGun::PlayShotSound(std::string eventString)
+void PlayerGun::PlayShotSound(API_String eventString)
 {
     Audio::Event(eventString.c_str());
 }

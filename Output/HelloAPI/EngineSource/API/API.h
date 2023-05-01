@@ -13,6 +13,7 @@
 #include "API_Vector2.h"
 #include "API_Vector3.h"
 #include "API_QuickSave.h"
+#include "API_String.h"
 
 // Entity & Components---------------
 #include "API_GameObject.h"
@@ -26,5 +27,7 @@
 #include "API_Material.h"
 #include "API_SkinnedMeshRenderer.h"
 #include "API_UIInput.h"
+#include "API_ShaderComponent.h"
+#include "API_UIImage.h"
 
 using namespace API;

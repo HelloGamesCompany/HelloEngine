@@ -29,7 +29,7 @@ public:
 	void AddDragFloat(const char* name, float* value) override;
 	void AddDragInt(const char* name, int* value) override;
 	void AddCheckBox(const char* name, bool* value) override;
-	void AddInputBox(const char* name, std::string* value) override;
+	void AddInputBox(const char* name, API::API_String* value) override;
 	void AddDragBoxGameObject(const char* name, API::API_GameObject* value) override;
 	void AddDragBoxTransform(const char* name, API::API_Transform* value) override;
 	void AddDragBoxMeshRenderer(const char* name, API::API_MeshRenderer* value) override;
@@ -46,6 +46,7 @@ public:
 	void AddDragBoxUIInput(const char* name, API::API_UIInput* value) override;
 	void AddDragBoxUIText(const char* name, API::API_UIText* value) override;
 	void AddDragBoxPrefabResource(const char* name, uint* value) override;
+	void AddDragBoxShaderComponent(const char* name, API::API_ShaderComponent* value) override;
 
 	uint GetResourceUID();
 	void DestroyedResource();

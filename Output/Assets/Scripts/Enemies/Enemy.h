@@ -32,9 +32,11 @@ public:
     API_GameObject enemyDropManagerGO;
     EnemyDropManager* enemyDropManager;
     API_RigidBody enemyRb;
+    API_ShaderComponent enemyShader;
 
     float maxHp = 100.0f;
     float currentHp;
+    float minResistence = 10.0f;
     float maxResistance = 100.0f;
     float currentResistance;
     float speed = 75.0f;
@@ -48,6 +50,9 @@ public:
 
     bool actSlow;
     bool actStun;
+
+    bool targeting;
+    bool meleeIsAtking = false;
     
     API_Vector3 baseRot;//base rotation object
 
@@ -70,6 +75,7 @@ public:
     int currentBombNum = 0;
     API_GameObject bomb;
     uint textureBomb[6];
+    int shotgunLevel;
 
     // burn
     void AddBurn();
@@ -79,7 +85,10 @@ public:
 
     float _tAnimDie;
     float _coldAnimDie;
+
+    float _tHitColor = 0.35f;
 private:
+
     float _coldStun;
     float _coldSlow;
 
@@ -90,5 +99,8 @@ private:
     float _tAnimHit;
     float _coldAnimHit;
     
+    float _coldHitColor;
+
+    bool _hitShader;
 };
 
