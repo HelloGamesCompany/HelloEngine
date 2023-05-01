@@ -100,5 +100,6 @@ namespace API
 		friend class API_UIText;
         friend class API_SkinnedMeshRenderer;
         friend class API_ShaderComponent;
+        friend class API_Agent;
     };
 }

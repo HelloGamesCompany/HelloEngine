@@ -380,6 +380,9 @@
     <ClCompile Include="PhysicsComponent.cpp">
       <Filter>Components</Filter>
     </ClCompile>
+    <ClCompile Include="API\API_Agent.cpp">
+      <Filter>API</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\External\ImGuiColorTextEdit\TextEditor.h" />
@@ -788,6 +791,9 @@
     </ClInclude>
     <ClInclude Include="PhysicsComponent.h">
       <Filter>Components</Filter>
+    </ClInclude>
+    <ClInclude Include="API\API_Agent.h">
+      <Filter>API</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
