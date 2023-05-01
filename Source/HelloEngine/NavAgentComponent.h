@@ -20,11 +20,20 @@ public:
 
 	void SetTarget(float3 targetPos);
 
+	void MoveToTarget();
+
+	void Stop();
+
+	bool IsMoving() { return _move; }
+
 public:
 	NavAgent* agentProperties = nullptr;
-	Pathfinder* pathfinder = nullptr;
 
 private:
-	float3 _target;
+	Pathfinder* _pathfinder = nullptr;
+
+	float3 _target = { 0,0,0 };
+	int _indexInTheModule = 0;
+	bool _move = false;
 };
 

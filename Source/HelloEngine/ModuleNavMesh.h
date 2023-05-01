@@ -4,16 +4,18 @@
 #include "Recast/Recast.h"
 #include "Detour/DetourNavMesh.h"
 #include "Detour/DetourNavMeshQuery.h"
+#include <stack>
 
 #define MAX_POLYS 256
 #define MAX_SMOOTH 2048
-#define MAX_ERROR 0.05f
+#define MAX_ERROR 0.1f
 
 class GameObject;
 class InputGeom;
 class NavMeshBuilder;
 class ComponentAgent;
 class btRigidBody;
+class PhysicsComponent;
 
 enum class PathType
 {
@@ -71,7 +73,9 @@ public:
 	std::vector<float3> CalculatePath(ComponentAgent* agent, float3 destination);
 	void RenderPath(ComponentAgent* agent);
 	bool MovePath(ComponentAgent* agent);
-	bool MoveTo(ComponentAgent* agent, float3 destination);
+
+private:
+	bool MoveTo(PhysicsComponent* agent, const NavAgent* const destination);
 	bool LookAt(btRigidBody* rigidBody, float2 direction2D, float2 origin2D);
 	bool SmoothLookAt(btRigidBody* rigidBody, float2 direction2D, float2 origin2D, float speed);
 
@@ -132,7 +136,7 @@ public:
 
 	bool Start() override;
 
-	UpdateStatus Update(float dt);
+	UpdateStatus Update() override;
 
 	static bool S_Save();
 
@@ -156,8 +160,19 @@ public:
 	static Pathfinder* S_GetPathfinding() { return _pathfinder; };
 
 private:
+	static int AddAgentToList(ComponentAgent* const agent);
+
+	static void RemoveAgentFromList(const int index);
+
+private:
 	static NavMeshBuilder* _navMeshBuilder;
 	static Pathfinder* _pathfinder;
 	static InputGeom* _geometry;
 	static BuildSettings* _buildSettings;
+
+	// Agent List manager
+	static std::vector<ComponentAgent*> _agents;
+	static std::stack<int> _freeSpace;
+
+	friend class ComponentAgent;
 };

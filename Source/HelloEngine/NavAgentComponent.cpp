@@ -7,28 +7,33 @@ ComponentAgent::ComponentAgent(GameObject* gameObject) : Component(gameObject)
 {
 	_type = Type::AGENT;
 	agentProperties = new NavAgent();
-	pathfinder = ModuleNavMesh::S_GetPathfinding();
+	_pathfinder = ModuleNavMesh::S_GetPathfinding();
 	_target = { 0,0,0 };
+
+	_indexInTheModule = ModuleNavMesh::AddAgentToList(this);
 }
 
 ComponentAgent::~ComponentAgent()
 {
+	ModuleNavMesh::RemoveAgentFromList(_indexInTheModule);
+
 	agentProperties->path.clear();
 	RELEASE(agentProperties);
 }
 
 void ComponentAgent::OnEditor()
 {
+	bool created = true;
+
 	ImGui::PushID(this);
-	if (ImGui::CollapsingHeader("NavAgent"))
+	if (ImGui::CollapsingHeader("NavAgent", &created, ImGuiTreeNodeFlags_DefaultOpen))
 	{
 		if (ImGui::Button("CreatePath"))
-			agentProperties->path = pathfinder->CalculatePath(this, _target);
+			agentProperties->path = _pathfinder->CalculatePath(this, _target);
 
 		ImGui::SameLine();
 
-		if (ImGui::Button("GoTo"))
-			ModuleNavMesh::S_GetPathfinding()->MovePath(this);
+		ImGui::Checkbox("Move", &_move);
 
 		ImGui::DragFloat3("Target: ", _target.ptr());
 		ImGui::Separator();
@@ -71,6 +76,9 @@ void ComponentAgent::OnEditor()
 		ImGui::Dummy({ 0,10 });
 	}
 	ImGui::PopID();
+
+	if (!created)
+		this->_gameObject->DestroyComponent(this);
 }
 
 void ComponentAgent::Serialization(json& j)
@@ -112,5 +120,17 @@ void ComponentAgent::SetTarget(float3 targetPos)
 {
 	_target = targetPos;
 
-	agentProperties->path = pathfinder->CalculatePath(this, _target);
+	agentProperties->path = _pathfinder->CalculatePath(this, _target);
+}
+
+void ComponentAgent::MoveToTarget()
+{
+	_move = true;
+
+	ModuleNavMesh::AddAgentToList(this);
+}
+
+void ComponentAgent::Stop()
+{
+	_move = false;
 }

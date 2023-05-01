@@ -228,9 +228,8 @@ void ModuleLayers::S_RequestLoadScene(const std::string& scenePath)
 GameObject* ModuleLayers::S_GetGameObject(uint ID)
 {
     if (gameObjects.find(ID) != gameObjects.end())
-    {
         return gameObjects[ID];
-    }
+
     return nullptr;
 }
 

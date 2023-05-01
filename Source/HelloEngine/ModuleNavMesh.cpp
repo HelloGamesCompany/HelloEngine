@@ -24,6 +24,8 @@ NavMeshBuilder* ModuleNavMesh::_navMeshBuilder = nullptr;
 Pathfinder* ModuleNavMesh::_pathfinder = nullptr;
 InputGeom* ModuleNavMesh::_geometry = nullptr;
 BuildSettings* ModuleNavMesh::_buildSettings = nullptr;
+std::vector<ComponentAgent*> ModuleNavMesh::_agents;
+std::stack<int> ModuleNavMesh::_freeSpace;
 
 inline bool InRange(const float* v1, const float* v2, const float r, const float h)
 {
@@ -234,8 +236,17 @@ bool ModuleNavMesh::Start()
 	return true;
 }
 
-UpdateStatus ModuleNavMesh::Update(float dt)
+UpdateStatus ModuleNavMesh::Update()
 {
+	if (!LayerGame::S_IsPlaying())
+		return UpdateStatus::UPDATE_CONTINUE;
+
+	for (auto agent : _agents)
+	{
+		if (agent && agent->IsMoving())
+			_pathfinder->MovePath(agent);
+	}
+
 	return UpdateStatus::UPDATE_CONTINUE;
 }
 
@@ -381,6 +392,32 @@ void ModuleNavMesh::S_AddGameObjectToNavMesh(GameObject* objectToAdd)
 	_geometry->MergeToMesh(mesh, globalTransform);
 }
 
+int ModuleNavMesh::AddAgentToList(ComponentAgent* const agent)
+{
+	int ret = 0;
+
+	if (!_freeSpace.empty())
+	{
+		ret = _freeSpace.top();
+		_agents[ret] = agent;
+		_freeSpace.pop();
+	}
+	else
+	{
+		_agents.push_back(agent);
+		ret = _agents.size() - 1;
+	}
+
+	return ret;
+}
+
+void ModuleNavMesh::RemoveAgentFromList(const int index)
+{
+	_freeSpace.push(index);
+
+	_agents[index] = nullptr;
+}
+
 Pathfinder::Pathfinder() : m_navQuery(nullptr),
 m_navMesh(nullptr), m_navMeshBuilder(nullptr)
 {
@@ -409,6 +446,8 @@ std::vector<float3> Pathfinder::CalculatePath(ComponentAgent* agent, float3 dest
 
 	NavAgent* agentProp = agent->agentProperties;
 	float3 origin = agent->GetGameObject()->GetComponent<TransformComponent>()->GetGlobalPosition();
+
+	origin.y -= (agentProp->height / 2);
 
 	dtStatus status;
 	const float m_polyPickExt[3] = { 2,4,2 };
@@ -718,14 +757,19 @@ void Pathfinder::RenderPath(ComponentAgent* agent)
 
 bool Pathfinder::MovePath(ComponentAgent* agent)
 {
+	PhysicsComponent* phys = agent->_gameObject->GetComponent<PhysicsComponent>();
+
+	if (!phys)
+		return true;
+
 	if (!agent->agentProperties->path.empty() &&
-		MoveTo(agent, agent->agentProperties->path[0]))
+		MoveTo(phys, agent->agentProperties))
 	{
 		agent->agentProperties->path.erase(agent->agentProperties->path.begin());
 
 		if (agent->agentProperties->path.empty())
 		{
-			agent->GetGameObject()->GetComponent<PhysicsComponent>()->SetVelocity({ 0,0,0 });
+			phys->SetVelocity({ 0,0,0 });
 			return true;
 		}
 	}
@@ -733,13 +777,16 @@ bool Pathfinder::MovePath(ComponentAgent* agent)
 	return false;
 }
 
-bool Pathfinder::MoveTo(ComponentAgent* agent, float3 destination)
+bool Pathfinder::MoveTo(PhysicsComponent* physComponent, const NavAgent* const agentProp)
 {
-	PhysicsComponent* physComponent = agent->GetGameObject()->GetComponent<PhysicsComponent>();
+	float3 origin = physComponent->_gameObject->GetComponent<TransformComponent>()->GetGlobalPosition();
 
-	float3 origin = agent->GetGameObject()->GetComponent<TransformComponent>()->GetGlobalPosition();
+	float3 destination = agentProp->path[0];
 
 	float3 direction = destination - origin;
+
+	// This line is hard code
+	direction.y = 0;
 
 	float2 destination2D = { destination.x, destination.z };
 
@@ -750,14 +797,14 @@ bool Pathfinder::MoveTo(ComponentAgent* agent, float3 destination)
 	physComponent->_physBody->body->activate(true);
 
 	//Movement
-	physComponent->SetVelocity(direction * agent->agentProperties->speed);
+	physComponent->SetVelocity(direction * agentProp->speed);
 
 	//Rotation
-	SmoothLookAt(physComponent->_physBody->body, { direction.x, direction.z }, { origin.x, origin.z }, agent->agentProperties->angularSpeed * DEGTORAD);
+	SmoothLookAt(physComponent->_physBody->body, { direction.x, direction.z }, { origin.x, origin.z }, agentProp->angularSpeed * DEGTORAD);
 	//LookAt(rigidBody, { direction.x, direction.z }, { origin.x, origin.z });
 
-	if (destination2D.Distance({ origin.x, origin.z }) < MAX_ERROR * agent->agentProperties->speed &&
-		totalheight < MAX_ERROR + (agent->agentProperties->height / 2))
+	if (destination2D.Distance({ origin.x, origin.z }) < MAX_ERROR * agentProp->speed &&
+		totalheight < MAX_ERROR + (agentProp->height / 2))
 		return true;
 
 	return false;
