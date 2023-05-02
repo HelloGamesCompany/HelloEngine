@@ -4,6 +4,7 @@
 #include "TextureComponent.h"
 #include "ComponentUIButton.h"
 #include "ComponentUISlider.h"
+#include "API/API_UICheckBox.h"
 
 ComponentUICheckbox::ComponentUICheckbox(GameObject* gameObject) : ComponentUI(gameObject)
 {
