@@ -198,12 +198,15 @@
             },
             {
                 "Enabled": true,
-                "MaterialResource": 240240,
+                "MaterialResource": 0,
                 "MeshEnabled": true,
                 "State": 0,
                 "Type": 14,
+                "hoverActiveImage": 0,
                 "hoverImage": 0,
+                "idleActiveImage": 0,
                 "idleImage": 0,
+                "pressActiveImage": 0,
                 "pressImage": 0
             }
         ],
@@ -238,12 +241,15 @@
             },
             {
                 "Enabled": true,
-                "MaterialResource": 240240,
+                "MaterialResource": 0,
                 "MeshEnabled": true,
                 "State": 0,
                 "Type": 14,
+                "hoverActiveImage": 0,
                 "hoverImage": 0,
+                "idleActiveImage": 0,
                 "idleImage": 0,
+                "pressActiveImage": 0,
                 "pressImage": 0
             }
         ],
@@ -278,12 +284,15 @@
             },
             {
                 "Enabled": true,
-                "MaterialResource": 240240,
+                "MaterialResource": 0,
                 "MeshEnabled": true,
                 "State": 0,
                 "Type": 14,
+                "hoverActiveImage": 0,
                 "hoverImage": 0,
+                "idleActiveImage": 0,
                 "idleImage": 0,
+                "pressActiveImage": 3460452994,
                 "pressImage": 0
             }
         ],
@@ -318,12 +327,15 @@
             },
             {
                 "Enabled": true,
-                "MaterialResource": 240240,
+                "MaterialResource": 0,
                 "MeshEnabled": true,
                 "State": 0,
                 "Type": 14,
+                "hoverActiveImage": 0,
                 "hoverImage": 0,
+                "idleActiveImage": 0,
                 "idleImage": 0,
+                "pressActiveImage": 0,
                 "pressImage": 0
             }
         ],
