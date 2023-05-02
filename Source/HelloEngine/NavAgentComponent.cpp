@@ -126,8 +126,6 @@ void ComponentAgent::SetTarget(float3 targetPos)
 void ComponentAgent::MoveToTarget()
 {
 	_move = true;
-
-	ModuleNavMesh::AddAgentToList(this);
 }
 
 void ComponentAgent::Stop()

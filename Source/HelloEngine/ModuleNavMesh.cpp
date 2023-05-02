@@ -24,7 +24,7 @@ NavMeshBuilder* ModuleNavMesh::_navMeshBuilder = nullptr;
 Pathfinder* ModuleNavMesh::_pathfinder = nullptr;
 InputGeom* ModuleNavMesh::_geometry = nullptr;
 BuildSettings* ModuleNavMesh::_buildSettings = nullptr;
-std::vector<ComponentAgent*> ModuleNavMesh::_agents;
+std::vector<std::pair<ComponentAgent*, PhysicsComponent*>> ModuleNavMesh::_agents;
 std::stack<int> ModuleNavMesh::_freeSpace;
 
 inline bool InRange(const float* v1, const float* v2, const float r, const float h)
@@ -243,7 +243,7 @@ UpdateStatus ModuleNavMesh::Update()
 
 	for (auto agent : _agents)
 	{
-		if (agent && agent->IsMoving())
+		if (agent.first && agent.second && agent.first->IsMoving())
 			_pathfinder->MovePath(agent);
 	}
 
@@ -399,12 +399,14 @@ int ModuleNavMesh::AddAgentToList(ComponentAgent* const agent)
 	if (!_freeSpace.empty())
 	{
 		ret = _freeSpace.top();
-		_agents[ret] = agent;
+		_agents[ret].first = agent;
+		_agents[ret].second = agent->GetGameObject()->GetComponent<PhysicsComponent>();
 		_freeSpace.pop();
 	}
 	else
 	{
-		_agents.push_back(agent);
+		_agents.push_back(std::make_pair(agent, 
+			agent->GetGameObject()->GetComponent<PhysicsComponent>()));
 		ret = _agents.size() - 1;
 	}
 
@@ -415,7 +417,8 @@ void ModuleNavMesh::RemoveAgentFromList(const int index)
 {
 	_freeSpace.push(index);
 
-	_agents[index] = nullptr;
+	_agents[index].first = nullptr;
+	_agents[index].second = nullptr;
 }
 
 Pathfinder::Pathfinder() : m_navQuery(nullptr),
@@ -755,9 +758,11 @@ void Pathfinder::RenderPath(ComponentAgent* agent)
 	}
 }
 
-bool Pathfinder::MovePath(ComponentAgent* agent)
+bool Pathfinder::MovePath(std::pair<ComponentAgent*, PhysicsComponent*> agentPair)
 {
-	PhysicsComponent* phys = agent->_gameObject->GetComponent<PhysicsComponent>();
+	PhysicsComponent* phys = agentPair.second;
+
+	ComponentAgent* agent = agentPair.first;
 
 	if (!phys)
 		return true;

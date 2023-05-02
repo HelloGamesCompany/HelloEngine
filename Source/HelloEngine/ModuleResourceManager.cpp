@@ -653,12 +653,16 @@ bool ModuleResourceManager::S_DeserializeScene(const std::string& filePath)
 		for (int j = 0; j < object.size(); j++)
 		{
 			Component::Type componentType = object[j]["Type"];
-			if (componentType == Component::Type::SCRIPT || componentType == Component::Type::MATERIAL ||componentType == Component::Type::UI_INPUT)
+			if (componentType == Component::Type::SCRIPT ||
+				componentType == Component::Type::MATERIAL ||
+				componentType == Component::Type::UI_INPUT ||
+				componentType == Component::Type::AGENT)
 				continue;
 			/*if (temp[i].first->_prefabUID == 0)*/ temp[i].first->AddComponentSerialized(componentType, object[j]);
 		}
 	}
 
+	// Create UI & Agent
 	for (int i = 0; i < sceneFile.size(); i++)
 	{
 		// Create components
@@ -666,12 +670,15 @@ bool ModuleResourceManager::S_DeserializeScene(const std::string& filePath)
 		for (int j = 0; j < object.size(); j++)
 		{
 			Component::Type componentType = object[j]["Type"];
-			if (componentType != Component::Type::MATERIAL && componentType != Component::Type::UI_INPUT)
-				continue;
-			/*if (temp[i].first->_prefabUID == 0)*/ temp[i].first->AddComponentSerialized(componentType, object[j]);
+			if (componentType == Component::Type::MATERIAL || 
+				componentType == Component::Type::UI_INPUT ||
+				componentType == Component::Type::AGENT)
+				temp[i].first->AddComponentSerialized(componentType, object[j]);
+			/*if (temp[i].first->_prefabUID == 0)*/ 
 		}
 	}
 
+	// Create Scripting
 	for (int i = 0; i < sceneFile.size(); i++)
 	{
 		// Create components
@@ -679,9 +686,10 @@ bool ModuleResourceManager::S_DeserializeScene(const std::string& filePath)
 		for (int j = 0; j < object.size(); j++)
 		{
 			Component::Type componentType = object[j]["Type"];
-			if (componentType != Component::Type::SCRIPT)
-				continue;
-			/*if (temp[i].first->_prefabUID == 0)*/ temp[i].first->AddComponentSerialized(componentType, object[j]);
+
+			if (componentType == Component::Type::SCRIPT)
+				temp[i].first->AddComponentSerialized(componentType, object[j]);
+			/*if (temp[i].first->_prefabUID == 0)*/ 
 		}
 	}
 

@@ -102,7 +102,6 @@
     <ClCompile Include="QuickSave.cpp" />
     <ClCompile Include="InstanceRenderer.cpp" />
     <ClCompile Include="SceneCameraObject.cpp" />
-    <ClCompile Include="ScriptComponent.cpp" />
     <ClCompile Include="ScriptToInspectorInterface.cpp" />
     <ClCompile Include="Shader.cpp" />
     <ClCompile Include="SkinnedMeshRenderComponent.cpp" />
@@ -394,6 +393,9 @@
     <ClCompile Include="sha256.cpp" />
     <ClCompile Include="API\API_String.cpp" />
     <ClCompile Include="API\API_ShaderComponent.cpp" />
+    <ClCompile Include="ScriptComponent.cpp">
+      <Filter>Components</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\External\ImGuiColorTextEdit\TextEditor.h" />
@@ -532,7 +534,6 @@
     <ClInclude Include="InstanceRenderer.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="SceneCameraObject.h" />
-    <ClInclude Include="ScriptComponent.h" />
     <ClInclude Include="ScriptToInspectorInterface.h" />
     <ClInclude Include="Shader.h" />
     <ClInclude Include="ShaderData.h" />
@@ -817,6 +818,9 @@
     <ClInclude Include="sha256.h" />
     <ClInclude Include="API\API_String.h" />
     <ClInclude Include="API\API_ShaderComponent.h" />
+    <ClInclude Include="ScriptComponent.h">
+      <Filter>Components</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="HelloEngine.rc" />

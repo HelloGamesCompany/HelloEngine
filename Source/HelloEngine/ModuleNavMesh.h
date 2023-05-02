@@ -72,7 +72,7 @@ public:
 	void Init(NavMeshBuilder* builder);
 	std::vector<float3> CalculatePath(ComponentAgent* agent, float3 destination);
 	void RenderPath(ComponentAgent* agent);
-	bool MovePath(ComponentAgent* agent);
+	bool MovePath(std::pair<ComponentAgent*, PhysicsComponent*> agentPair);
 
 private:
 	bool MoveTo(PhysicsComponent* agent, const NavAgent* const destination);
@@ -171,7 +171,7 @@ private:
 	static BuildSettings* _buildSettings;
 
 	// Agent List manager
-	static std::vector<ComponentAgent*> _agents;
+	static std::vector<std::pair<ComponentAgent*, PhysicsComponent*>> _agents;
 	static std::stack<int> _freeSpace;
 
 	friend class ComponentAgent;
